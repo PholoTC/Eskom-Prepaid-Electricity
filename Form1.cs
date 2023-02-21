@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Eskom__Prepaid_Electricity
 {
-    public partial class Form1 : Form
+    public partial class frmEskom : Form
     {
-        public Form1()
+        public frmEskom()
         {
             InitializeComponent();
+        }
+
+        private void frmEskom_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
