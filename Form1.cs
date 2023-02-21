@@ -21,5 +21,10 @@ namespace Eskom__Prepaid_Electricity
         {
 
         }
+
+        private void btnPurchase_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

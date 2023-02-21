@@ -34,11 +34,11 @@
             this.lblToken = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblVat = new System.Windows.Forms.Label();
+            this.lblUnit = new System.Windows.Forms.Label();
             this.txtMeterNumber = new System.Windows.Forms.TextBox();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.btnPurchase = new System.Windows.Forms.Button();
-            this.lblUnit = new System.Windows.Forms.Label();
-            this.lblVat = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -96,6 +96,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Purchase Details";
             // 
+            // lblVat
+            // 
+            this.lblVat.AutoSize = true;
+            this.lblVat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVat.Location = new System.Drawing.Point(234, 241);
+            this.lblVat.Name = "lblVat";
+            this.lblVat.Size = new System.Drawing.Size(120, 55);
+            this.lblVat.TabIndex = 5;
+            this.lblVat.Text = "VAT";
+            // 
+            // lblUnit
+            // 
+            this.lblUnit.AutoSize = true;
+            this.lblUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnit.Location = new System.Drawing.Point(241, 164);
+            this.lblUnit.Name = "lblUnit";
+            this.lblUnit.Size = new System.Drawing.Size(113, 55);
+            this.lblUnit.TabIndex = 4;
+            this.lblUnit.Text = "Unit";
+            // 
             // txtMeterNumber
             // 
             this.txtMeterNumber.Location = new System.Drawing.Point(524, 410);
@@ -121,26 +141,7 @@
             this.btnPurchase.TabIndex = 8;
             this.btnPurchase.Text = "Purchace";
             this.btnPurchase.UseVisualStyleBackColor = true;
-            // 
-            // lblUnit
-            // 
-            this.lblUnit.AutoSize = true;
-            this.lblUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnit.Location = new System.Drawing.Point(241, 164);
-            this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(113, 55);
-            this.lblUnit.TabIndex = 4;
-            this.lblUnit.Text = "Unit";
-            // 
-            // lblVat
-            // 
-            this.lblVat.AutoSize = true;
-            this.lblVat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVat.Location = new System.Drawing.Point(234, 241);
-            this.lblVat.Name = "lblVat";
-            this.lblVat.Size = new System.Drawing.Size(120, 55);
-            this.lblVat.TabIndex = 5;
-            this.lblVat.Text = "VAT";
+            this.btnPurchase.Click += new System.EventHandler(this.btnPurchase_Click);
             // 
             // frmEskom
             // 
