@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEskom));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,9 +37,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblVat = new System.Windows.Forms.Label();
             this.lblUnit = new System.Windows.Forms.Label();
-            this.txtMeterNumber = new System.Windows.Forms.TextBox();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.btnPurchase = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.txtMeterNumber = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +71,7 @@
             // 
             this.lblToken.AutoSize = true;
             this.lblToken.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblToken.Location = new System.Drawing.Point(234, 98);
+            this.lblToken.Location = new System.Drawing.Point(404, 109);
             this.lblToken.Name = "lblToken";
             this.lblToken.Size = new System.Drawing.Size(163, 55);
             this.lblToken.TabIndex = 3;
@@ -85,6 +89,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblVat);
             this.groupBox1.Controls.Add(this.lblUnit);
             this.groupBox1.Controls.Add(this.lblToken);
@@ -100,7 +106,7 @@
             // 
             this.lblVat.AutoSize = true;
             this.lblVat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVat.Location = new System.Drawing.Point(234, 241);
+            this.lblVat.Location = new System.Drawing.Point(404, 271);
             this.lblVat.Name = "lblVat";
             this.lblVat.Size = new System.Drawing.Size(120, 55);
             this.lblVat.TabIndex = 5;
@@ -110,25 +116,21 @@
             // 
             this.lblUnit.AutoSize = true;
             this.lblUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnit.Location = new System.Drawing.Point(241, 164);
+            this.lblUnit.Location = new System.Drawing.Point(435, 194);
             this.lblUnit.Name = "lblUnit";
             this.lblUnit.Size = new System.Drawing.Size(113, 55);
             this.lblUnit.TabIndex = 4;
             this.lblUnit.Text = "Unit";
             // 
-            // txtMeterNumber
-            // 
-            this.txtMeterNumber.Location = new System.Drawing.Point(524, 410);
-            this.txtMeterNumber.Name = "txtMeterNumber";
-            this.txtMeterNumber.Size = new System.Drawing.Size(554, 44);
-            this.txtMeterNumber.TabIndex = 6;
-            // 
             // txtAmount
             // 
             this.txtAmount.Location = new System.Drawing.Point(524, 515);
+            this.txtAmount.MaxLength = 6;
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(554, 44);
             this.txtAmount.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.txtAmount, "Enter Whole numbers only, no cents \r\nDo not include ( . ,)");
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // btnPurchase
             // 
@@ -142,6 +144,43 @@
             this.btnPurchase.Text = "Purchace";
             this.btnPurchase.UseVisualStyleBackColor = true;
             this.btnPurchase.Click += new System.EventHandler(this.btnPurchase_Click);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.ShowAlways = true;
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            // 
+            // txtMeterNumber
+            // 
+            this.txtMeterNumber.Location = new System.Drawing.Point(524, 410);
+            this.txtMeterNumber.MaxLength = 10;
+            this.txtMeterNumber.Name = "txtMeterNumber";
+            this.txtMeterNumber.Size = new System.Drawing.Size(554, 44);
+            this.txtMeterNumber.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.txtMeterNumber, "Enter Numerical Data only (0-9)");
+            this.txtMeterNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMeterNumber_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(234, 271);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 55);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "VAT";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(234, 194);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 55);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Unit";
             // 
             // frmEskom
             // 
@@ -179,9 +218,12 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblVat;
         private System.Windows.Forms.Label lblUnit;
-        private System.Windows.Forms.TextBox txtMeterNumber;
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.Button btnPurchase;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TextBox txtMeterNumber;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
 
