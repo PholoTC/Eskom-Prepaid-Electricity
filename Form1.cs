@@ -16,6 +16,13 @@ namespace Eskom__Prepaid_Electricity
         public frmEskom()
         {
             InitializeComponent();
+            lblToken.Visible = false;
+            lblUnit.Visible = false;
+            lblVat.Visible = false;
+            lblMeter.Visible = false;
+            lblDate.Visible = false;
+            lblAmount.Visible = false;
+            btnPurchase.BackColor = Color.White;
         }
 
         private void frmEskom_Load(object sender, EventArgs e)
@@ -31,9 +38,10 @@ namespace Eskom__Prepaid_Electricity
 
 
 
-            if (meterNumber.Length < 10 ) {
-                
-                MessageBox.Show("Incorrect Meter number","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            if (meterNumber.Length < 10)
+            {
+
+                MessageBox.Show("Incorrect Meter number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -41,13 +49,11 @@ namespace Eskom__Prepaid_Electricity
 
                 if (amount >= 20)
                 {
-                    MessageBox.Show("Good");
-
                     double vat = amount * 0.15;
                     double purchace = amount - vat;
 
                     //1 unit = R2.35
-                    double total =  purchace / 2.35; //  format to 2 decimal
+                    double total = purchace / 2.35; //  format to 2 decimal
 
                     //Create token 
                     Random rand = new Random();
@@ -59,11 +65,23 @@ namespace Eskom__Prepaid_Electricity
                     t4 = rand.Next(1000, 10000);
                     t5 = rand.Next(1000, 10000);
 
-                    lblToken.Text = t1.ToString() + " " + t2.ToString() + " " +t3.ToString() + " " + t4.ToString() + " " + t5.ToString();
-                    lblUnit.Text = total.ToString() + " Kwh";
-                    lblVat.Text =  vat.ToString();
+                    lblToken.Text = t1.ToString() + " " + t2.ToString() + " " + t3.ToString() + " " + t4.ToString() + " " + t5.ToString();
+                    lblToken.Visible = true;
 
+                    lblUnit.Text = String.Format("{0:0.##}", total) + " Kwh";
+                    lblUnit.Visible = true;
 
+                    lblVat.Text = vat.ToString();
+                    lblVat.Visible = true;
+
+                    lblAmount.Text = "R " + amount.ToString() + ".00";
+                    lblAmount.Visible = true;
+
+                    lblMeter.Text = meterNumber;
+                    lblMeter.Visible = true;
+
+                    lblDate.Text = DateTime.Now.ToString();
+                    lblDate.Visible = true;
                 }
                 else
                 {
@@ -82,10 +100,10 @@ namespace Eskom__Prepaid_Electricity
             }
 
             // If you want, you can allow decimal (float) numbers
-           /* if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }*/
+            /* if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+             {
+                 e.Handled = true;
+             }*/
         }
 
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
